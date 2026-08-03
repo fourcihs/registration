@@ -1,49 +1,50 @@
 <!DOCTYPE html>
-<html>
+<html lang="id">
 <head>
-    <title>E-Registration| SMAN 4 Cimahi</title>
+    <meta charset="UTF-8">
+    <title>REGISTRATION | SMAN 4 Cimahi</title>
+    <!-- Mencegah zoom paksa di HP agar form tidak bergeser berantakan -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    
     <style>
-        /* Mengatur dasar halaman jadi Putih Bersih */
-        body, html { 
-            margin: 0; 
-            padding: 0; 
-            height: 100%; 
-            width: 100%; 
-            overflow: hidden; 
-            background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 50%, #bae6fd 100%);
+        /* Mengatur dasar halaman */
+        html, body {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden; /* Mencegah scroll ganda di luar iframe */
+            background: #f5f6fa;
         }
 
-        .wrapper { 
-            position: relative; 
-            width: 100%; 
-            height: 100vh; 
-            overflow: hidden; 
+        /* Wrapper menggunakan Flexbox agar pengisian layar presisi */
+        .wrapper {
+            display: flex;
+            width: 100%;
+            height: 100%;
         }
 
+        /* Iframe dibuat fleksibel mengisi 100% ruang yang tersedia */
         iframe {
-            position: absolute;
-            top: -45px; 
-            left: 0; 
-            width: 100%; 
-            height: calc(100% + 45px); 
+            width: 100%;
+            height: 100%;
             border: none;
-            padding-top: 35px; 
-            padding-bottom: 50px; 
             box-sizing: border-box;
-            /* Pastikan background iframe juga putih agar serasi */
-            background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 50%, #bae6fd 100%);
+            background: transparent; /* Biar background gradient bawaan body terlihat */
         }
     </style>
 </head>
 <body>
+
     <div class="wrapper">
         <iframe id="myIframe" src="" allowtransparency="true"></iframe>
     </div>
 
     <script>
         const queryString = window.location.search;
-        const baseUrl = "https://script.google.com/macros/s/AKfycbzmzPTrMEUjNKWYDKPpz1Hb3zMetXsNaXZBbj1JRTAfGrdQf6_QITIRNjB-2pvyEbA_/exec";
+        // Pastikan URL Apps Script Anda sudah benar
+        const baseUrl = "https://script.google.com/macros/s/AKfycbxxOnMK46_RZbDNPzI4BSl4g2ti1kDNUz_-lJba5mxPanLgNYQj7H0fmrEUv-_x1YHdtA/exec";
+        
         document.getElementById('myIframe').src = baseUrl + queryString;
     </script>
 </body>
